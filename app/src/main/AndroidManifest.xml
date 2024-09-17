@@ -4,9 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -18,7 +17,12 @@
         android:roundIcon="@mipmap/main_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EVpoly"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <activity
+            android:name=".JoinActivity"
+            android:exported="false" />
         <activity
             android:name=".Section1_view"
             android:exported="false" />
@@ -29,7 +33,7 @@
             android:name=".Section3_view"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,11 +43,11 @@
         </activity>
 
         <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="5s6g59jkz6" />
+            android:name="com.kakao.sdk.AppKey"
+            android:value="596b35ef9dc6752cccbc1ad19012599d" />
 
         <activity
-            android:name=".JoinActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".Manager_view"
@@ -59,7 +63,8 @@
                 android:resource="@xml/file_path" />
         </provider>
 
-        <receiver android:name=".AlarmRecevier"
+        <receiver
+            android:name=".AlarmRecevier"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
